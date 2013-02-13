@@ -1,0 +1,1 @@
+/home/nemo/projects/sdslabs/muzi/js/lib/configurator.js
