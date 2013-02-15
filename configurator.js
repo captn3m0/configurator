@@ -41,7 +41,18 @@ window.Configurator=function(defaultConfig,persistent){
    */
   function _set(key, value, per) {
     per = per||false;
-    config[key] = value;
+    if(key.indexOf('.')<0){
+      config[key] = value;
+    }
+    else{
+      //they key is nested
+      var keys=key.split('.');
+      //a.b.c.d=value => {a:{b:{c:{d:value}}}}
+      for (var i = 0, tmp = config; i < keys.length - 1; i++) {
+         tmp = tmp[keys[i]] = {};
+      }
+      tmp[keys[i]] = value;
+    }
     //if key is persistent and it's not already in the persistent list
     if(per && persistent.indexOf(key)<0)
       persistent.push(key);
