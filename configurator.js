@@ -33,7 +33,10 @@ function Configurator (defaultConfig, persistent) {
 };
 
 /** 
- * Canonical function to abstract working of config
+ * Canonical function to abstract working of config, returns the value for particular key
+ * Loops through the config object recursively if such a key is passed (see further comments)
+ *
+ * @param string key Returns the value for a particular key
  */
 
 Configurator.prototype._get = function (key) {
@@ -61,6 +64,10 @@ Configurator.prototype._get = function (key) {
  * If the key is persistent, it is saved across to 
  * localStorage for persistence as well
  * from where it is retreived on next run
+ *
+ * @param string key String for which value is to set
+ * @param string value String value which has to be set
+ * @param boolean per If this key has to be persistent
  */
 
 Configurator.prototype._set = function (key, value, per) {
