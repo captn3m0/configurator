@@ -1,8 +1,7 @@
 {
   "name": "configurator",
   "version": "1.1.0",
-  "description": "Javascript configuration library to handle an application's configuration. Stores config to localstorage.
-",
+  "description": "Javascript configuration library to handle an application's configuration. Stores config to localstorage.",
   "author": {
     "name": "Amanpreet Singh",
     "email": "apsdehal@gmail.com",

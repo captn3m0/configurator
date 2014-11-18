@@ -6,7 +6,7 @@ module.exports = function ( grunt ) {
 	grunt.initConfig({
 	    // Browserify the modules
 		browserify : {
-			opti : {
+			configurator : {
 				src : "src/configurator.js",
 				dest : "build/configurator.js" 
 			},
@@ -27,5 +27,5 @@ module.exports = function ( grunt ) {
 	// Define dev environment tasks
 	grunt.registerTask('default',['browserify', 'karma:unit']);
 	// Define production environment tasks
-	grunt.registerTask('production', ['env:prod', 'browserify:opti']);
+	grunt.registerTask('production', ['env:prod', 'browserify:configuratorg']);
 };
