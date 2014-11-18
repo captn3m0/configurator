@@ -39,15 +39,15 @@ function Configurator (defaultConfig, persistent) {
  * @param string key Returns the value for a particular key
  */
 
-Configurator.prototype._get = function (key) {
+Configurator.prototype.get = function (key) {
   // if key is direct (usual case)
   if (key.indexOf('.') < 0) {
-    return config[key];
+    return this.config[key];
   }
   // if key is hidden inside some place
   // so key is something like "radioSettings.capital.url"
   var keys = key.split('.');
-  var conf = config;
+  var conf = this.config;
   // this will loop something like :
   // conf=conf['radioSettings']
   // conf=conf['capital']
@@ -70,31 +70,31 @@ Configurator.prototype._get = function (key) {
  * @param boolean per If this key has to be persistent
  */
 
-Configurator.prototype._set = function (key, value, per) {
+Configurator.prototype.set = function (key, value, per) {
   per = per||false;
   if (key.indexOf('.') < 0) {
-    config[key] = value;
+    this.config[key] = value;
   } else {
     // they key is nested
     var keys=key.split('.');
     // a.b.c.d=value => {a:{b:{c:{d:value}}}}
-    for (var i = 0, tmp = config; i < keys.length - 1; i++) {
+    for (var i = 0, tmp = this.config; i < keys.length - 1; i++) {
        tmp = tmp[keys[i]] = {};
     }
     tmp[keys[i]] = value;
   }
   // if key is persistent and it's not already in the persistent list
-  if (per && persistent.indexOf(key) < 0) {
-    persistent.push(key);
+  if (per && this.persistent.indexOf(key) < 0) {
+    this.persistent.push(key);
   }
   //we update the localStorage config as well
   //if the key was persistent
-  if (persistent.indexOf(key) > -1) {
+  if (this.persistent.indexOf(key) > -1) {
     //create a new object with persistent stuff only
     var obj = {};
-    for (i in persistent) {
-      var key = persistent[i];
-      obj[key] = config[key];
+    for (i in this.persistent) {
+      var key = this.persistent[i];
+      obj[key] = this.config[key];
     }
     localStorage.setItem('config',JSON.stringify(obj));
   }
@@ -106,7 +106,7 @@ Configurator.prototype._set = function (key, value, per) {
  * config is not affected
  */
 
-Configurator.prototype._clear = function () {
+Configurator.prototype.clearLS = function () {
   localStorage.clear();
-  localStorage.setItem('config',JSON.stringify(config));
+  localStorage.setItem('config',JSON.stringify(this.config));
 };

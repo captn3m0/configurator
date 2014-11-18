@@ -1,5 +1,7 @@
+var Configurator = require('../src/configurator.js');
+
 describe("Configurator", function() {
-  var config=Configurator(
+  var config = new Configurator(
     {
       a:12,
       b:2
