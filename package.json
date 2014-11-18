@@ -1,0 +1,49 @@
+{
+  "name": "configurator",
+  "version": "1.1.0",
+  "description": "Javascript configuration library to handle an application's configuration. Stores config to localstorage.
+",
+  "author": {
+    "name": "Amanpreet Singh",
+    "email": "apsdehal@gmail.com",
+    "url": "https://apsdehal.in"
+  },
+  "contributors" : [
+    {
+      "name": "Abhay Rana",
+      "email": "capt.n3m0@gmail.com",
+      "url": "http://captnemo.in"
+    }
+  ],
+  "dependencies": {
+    "grunt": "",
+    "grunt-contrib-uglify": "",
+    "grunt-contrib-jasmine": "",
+    "grunt-browserify": "",
+    "grunt-karma": "",
+    "matchdep": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/apsdehal/configurator"
+  },
+  "license": "MIT",
+  "main": "src/configurator.js",
+  "scripts": {
+    "test": "grunt karma:unit"
+  },
+  "keywords": [
+    "config",
+    "local",
+    "localstorage",
+    "store",
+    "storage",
+    "key",
+    "value"
+  ],
+  "devDependencies": {
+    "jasmine-core": "^2.1.2",
+    "karma-jasmine": "^0.3.0",
+    "karma-phantomjs-launcher": "^0.1.4"
+  }
+}
