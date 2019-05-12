@@ -1,6 +1,6 @@
 Configurator is a config manager library for Javascript. It uses localStorage to store persistent configurations in the browser.
 
-##Setup
+# Setup
 
 Include configurator.js in your html
 
@@ -32,10 +32,12 @@ var shuffleState = config.get('shuffle');
 //Will get the value of the config option.
 ```
 
-###Localstorage clearing
+# Localstorage clearing
+
 Since configurator stores the persistent config information in localstorage, you cannot clear localstorage using localStorage.clear any more. Instead use `config.clearLS()` function to clear the localStorage. It will clear localstorage, and write the persistent config keys back into localStorage.
 
-#Licence
-Licenced under MIT Licence. Feel free to fork/use.
+## License
+
+Licensed under the [MIT License](https://nemo.mit-license.org/). See LICENSE file for details.
 
 Configurator is extracted from [SDSLabs Muzi](https://sdslabs.co.in/muzi), a music player application for the IIT-Roorkee Campus.
